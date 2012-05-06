@@ -2,7 +2,7 @@
 
 Simple image resizing bundle for Laravel PHP framework.
 
-This bundle will allow you to resize an uploaded image or any image from the file system with ease.
+This bundle will allow you to resize an uploaded image or any image from the file system with ease. Supported image types are: JPG/JPEG, PNG, GIF.
 
 ## Installation
 
