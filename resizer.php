@@ -172,6 +172,7 @@ class Resizer {
 		
 		switch ( $mime )
 		{
+			case 'image/pjpeg': // IE6
 			case File::mime('jpg'):	$img = @imagecreatefromjpeg( $file_path );	break;
 			case File::mime('gif'):	$img = @imagecreatefromgif( $file_path );	break;
 			case File::mime('png'):	$img = @imagecreatefrompng( $file_path );	break;
