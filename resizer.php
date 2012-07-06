@@ -109,6 +109,9 @@ class Resizer {
 	 */
 	public function save( $save_path , $image_quality = 95 )
 	{
+		// If the image wasn't resized, fetch original image
+		if(!$this->image_resized) $this->image_resized = $this->image;
+
 		// Get extension of the output file
 		$extension = strtolower( File::extension($save_path) );
 		
