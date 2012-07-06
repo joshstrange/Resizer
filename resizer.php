@@ -17,10 +17,15 @@
  * 		Resizer::open( mixed $file )
  *			->resize( int $width , int $height , string 'exact, portrait, landscape, auto or crop' )
  *			->save( string 'path/to/file.jpg' , int $quality );
- *			
+ *		
+ *		// Resize and save an image.
  * 		Resizer::open( Input::file('field_name') )
  *			->resize( 800 , 600 , 'crop' )
  *			->save( 'path/to/file.jpg' , 100 );
+ *		
+ *		// Recompress an image.
+ *		Resizer::open( 'path/to/image.jpg' )
+ *			->save( 'path/to/new_image.jpg' , 60 );
  */
 class Resizer {
 	
@@ -109,8 +114,10 @@ class Resizer {
 	 */
 	public function save( $save_path , $image_quality = 95 )
 	{
-		// If the image wasn't resized, fetch original image
-		if(!$this->image_resized) $this->image_resized = $this->image;
+		// If the image wasn't resized, fetch original image.
+		if ( !$this->image_resized ) {
+			$this->image_resized = $this->image;
+		}
 
 		// Get extension of the output file
 		$extension = strtolower( File::extension($save_path) );
